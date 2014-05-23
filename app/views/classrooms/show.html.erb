@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<p>
+  <b> Name: </b>
+  <%= @classroom.name %>
+  <b> Campus:</b>
+  <%= @classroom.campus.name %>
+  <b> Capacity:</b>
+  <%= @classroom.capacity %>
+  <b>Bookings:</b><br>
+  <%= @classroom.bookings %><br>
+</p>
+
+
+<%= link_to 'Back', classrooms_path %>
+</div>

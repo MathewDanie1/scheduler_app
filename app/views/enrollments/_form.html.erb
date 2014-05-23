@@ -1,0 +1,24 @@
+<%= form_for(@enrollment) do |f| %>
+ <div class="container">
+  <div class="field">
+    <%= f.label :student  %>
+    <%= f.select :student_id, options_from_collection_for_select(@users, "id", "name") %>
+  </div>
+  <div class="field">
+    <%= f.label :cohort %>
+    <%= f.select :cohort_id, options_from_collection_for_select(Cohort.all, "id", "name") %>
+  </div>
+  <div class="field">
+    <%= f.label :pre_work_completed %>
+    <%= f.select :pre_work_completed, ['True', 'False'] %>
+  </div>
+  <div class="field">
+    <%= f.label :paid %>
+    <%= f.number_field :paid %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

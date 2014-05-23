@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SchedulerApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1>General Assembly: Scheduler App</h1>
+  <p>
+    <% if current_user %>
+      <p> hello, <%= current_user.email %> </p>
+      <%= link_to 'logout', session_path(session), method: :delete, data: {confirm: "Are you sure?"} %>
+    <% else %>
+      <%= link_to 'Please login', login_path %> or <%= link_to 'Sign up!', new_user_path %>
+    <% end %>
+  </p>  
+   <% flash.each do |name, message| %>
+   <div class="flash-message flash-message-<%= name %>">
+    <%= message %>
+   </div>
+  <% end %>
+</header>  
+
+  
+  <div>
+      <nav class="navbar">
+        <ul>
+            <% if can? :index, Program %>
+            <li><%= link_to "Programs", programs_path %></li><% end %>
+            <% if can? :index, Course %>
+            <li><%= link_to "Courses", courses_path %></li><% end %>
+            <% if can? :index, User %>
+            <li><%= link_to "Users", users_path %></li><% end %>
+            <% if can? :index, Campus %>
+            <li><%= link_to "Campuses", campuses_path %></li><% end %>
+            <% if can? :index, Cohort %>
+            <li><%= link_to "Cohorts", cohorts_path %></li><% end %>
+            <% if can? :index, Classroom %>
+            <li><%= link_to "Classrooms", classrooms_path %></li><% end %>
+            <% if can? :index, Booking %>
+            <li><%= link_to "Bookings", bookings_path %></li><% end %>
+            <% if can? :index, Enrollment %>
+            <li><%= link_to "Enrollments", enrollments_path %></li><% end %>
+            <% if can? :index, TeachingAssignment %>
+            <li><%= link_to "Teaching assignments", teaching_assignments_path %></li><% end %>
+          </ul>
+        </div>
+
+<%= yield %>
+
+
+<!-- <footer>
+Copyright MD @ GA 2014
+</footer> -->
+</body>
+</html>

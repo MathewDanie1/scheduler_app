@@ -1,0 +1,27 @@
+<h1>Listing bookings</h1>
+<div class="container">
+<table>
+<% @bookings.each do |booking| %>
+ <tr>
+  <td>Booking # <%= booking.id     %></td>
+  
+  <% if booking.producer %>
+  <td>made by: <%= booking.producer.name %></td>
+  <% end %> 
+
+  <td>for Cohort: <%= booking.cohort.name %></td> 
+  <td>in Classroom: <%= booking.classroom.name %></td>  
+  <td>Start date: <%= booking.start_date %></td> 
+  <td>End date: <%= booking.end_date %></td>
+  <td><%= link_to 'Show', booking if can? :show , booking %></td>
+  <td><%= link_to 'Edit', edit_booking_path(booking) if can? :edit , booking %></td>
+  <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy , booking %></td>
+ </tr>
+<% end %>
+</table>
+<br><br><br>
+
+<% if can? :create , Booking %>
+<%= link_to 'New booking', new_booking_path %>
+<% end %>
+</div>

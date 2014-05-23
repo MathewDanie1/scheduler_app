@@ -1,0 +1,17 @@
+<h1>Programs</h1>
+ <h2>Select Program for Details</h2>
+</div class="container">
+
+<div class="container">  
+ <table>
+    <% @programs.each do |program| %>
+  <tr>
+    <td><%= link_to program.name, program if can? :show , program %></td>
+    <td><%= link_to 'Edit', edit_program_path(program) if can? :edit , program %></td>
+    <td><%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy , program %></td><% end %>
+  </tr>
+</table>
+<% if can? :create , Program %>
+<%= link_to 'Add New Program...', new_program_path %>
+<% end %>
+</div>

@@ -1,0 +1,20 @@
+<h1>Enrollments</h1>
+<div class="container">
+<table>  
+<% @enrollments.each do |enrollment| %>
+<tr>
+  <td>Assignment <%= enrollment.id %>: </td><td>
+  <td>  Assigning  <%= enrollment.student.name %></td>
+  <td>to <%=    enrollment.cohort.name %></td>
+  <td><%= link_to 'Show', enrollment if can? :show , enrollment %></td>
+  <td><%= link_to 'Edit', edit_enrollment_path(enrollment) if can? :edit , enrollment %></td>
+  <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy , enrollment %></td>
+  </tr>
+<% end %>
+</table>
+<br><br><br>
+
+<% if can? :create , Enrollment %>
+<%= link_to 'Add new enrollment...', new_enrollment_path %>
+<% end %>
+</div>

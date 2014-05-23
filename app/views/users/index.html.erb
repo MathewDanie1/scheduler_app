@@ -1,0 +1,31 @@
+<h1>Users Home</h1>
+
+<div class="container">
+<table>
+  <% @users.each do |user| %>
+    <tr> 
+      <td><%= user.name %></td>
+      <td><%= user.role %></td>    
+      <td><%= link_to 'Show', user if can? :show , user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) if can? :edit , user %></td>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy , user %></td>
+    </tr>
+<% end %>
+</table>
+<br><br><br>
+
+<% if can? :create , User %>
+<%= link_to 'New user', new_user_path %>
+<% end %>
+</div>
+
+
+
+
+
+<!-- 
+<%= link_to('New user', new_user_path) if can? :create , User %>
+</div> -->
+
+
+ 

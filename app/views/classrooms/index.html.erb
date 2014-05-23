@@ -1,0 +1,19 @@
+<h1>Listing classrooms</h1>
+
+<div class="container">
+<table>
+<% @classrooms.each do |classroom| %>
+ <tr>
+  <td><%= classroom.name %></td>
+  <td><%= link_to 'Show', classroom if can? :show , classroom %></td>
+  <td><%= link_to 'Edit', edit_classroom_path(classroom) if can? :edit , classroom %></td>
+  <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy , classroom %></td>
+  </tr>
+<% end %>
+</table>
+<br><br><br>
+
+<% if can? :create , Classroom %>
+<%= link_to 'New classroom', new_classroom_path %>
+<% end %>
+</div>

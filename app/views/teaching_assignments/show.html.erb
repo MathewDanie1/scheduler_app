@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<p>
+  <b>Name:</b>
+  <%= @teaching_assignment.instructor.name %>
+  <b>Cohort</b>
+  <%= @teaching_assignment.cohort.name %>
+  <b>Rate</b>
+  <%= @teaching_assignment.rate %>
+</p>
+
+
+<%= link_to 'Back', teaching_assignments_path %>
+</div>

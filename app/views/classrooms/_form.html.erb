@@ -1,0 +1,20 @@
+<%= form_for(@classroom) do |f| %>
+  
+ <div class="container">
+  <div class="field">
+    <%= f.label :campus %>
+    <%= f.select :campus_id, options_from_collection_for_select(Campus.all, "id", "name") %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+ <% end %>
+</div>

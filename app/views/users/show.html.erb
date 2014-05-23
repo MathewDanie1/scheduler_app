@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<p>
+  <p> Name: <%= @user.name %></p>
+  <p> Role: <%= @user.role %></p>
+  <p> Biography: <%= @user.bio %></p>
+  <p> Email address: <%= @user.email %></p>
+  <p> Phone: <%= @user.phone %></p><br>
+  <p> Enrollments:<br>
+  <% @enrollments.each do |x| %>
+    <%= x.cohort.name %><br>
+  <% end %></p>
+  <p><%= @teaching_assignments.all %></p> 
+
+
+<%= link_to 'Back', users_path %>
+</div>

@@ -1,0 +1,21 @@
+<%= form_for(@course) do |f| %>
+    
+<div>   
+ </div class="container">
+  <div class="field">
+    <%= f.label :program %>
+    <%= f.select :program_id, options_from_collection_for_select(Program.all, "id", "name") %>
+  </div> 
+  <div class="field">
+    <%= f.label :campus %>
+    <%= f.select :campus_id, options_from_collection_for_select(Campus.all, "id", "name") %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+ <% end %>
+</div>

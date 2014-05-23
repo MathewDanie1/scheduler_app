@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<p>
+  <b> Name: </b>
+  <%= @cohort.name %>
+ <b> Course:</b>
+  <%= @cohort.course.name %>
+ <b> Start date: </b>
+  <%= @cohort.start_date %>
+ <b> End date:</b>
+  <%= @cohort.end_date %>
+</p>
+
+<%= link_to 'Back', cohorts_path %>
+</div>

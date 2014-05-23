@@ -1,0 +1,21 @@
+<h1>Teaching Assignments</h1>
+<div class="container">
+<table>
+<% @teaching_assignments.each do |teaching_assignment| %>
+<tr>
+  <td>Assignment: <%= teaching_assignment.id %></td>
+  <td>Assigning  <%= teaching_assignment.instructor.name %></td>
+  <td>To <%= teaching_assignment.cohort.name %></td>
+  <td><%= link_to 'Show', teaching_assignment if can? :show , teaching_assignment %></td>
+  <td><%= link_to 'Edit', edit_teaching_assignment_path(teaching_assignment) if can? :edit , teaching_assignment %></td>
+  <td><%= link_to 'Destroy', teaching_assignment, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy , teaching_assignment %></td>
+</tr>
+<% end %>
+</table>
+<br><br><br>
+
+<% if can? :create , TeachingAssignment %>
+<%= link_to 'Add new teaching assignment...', new_teaching_assignment_path %>
+<% end %>
+</div>
+

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<p>
+  <b> ID: </b>
+  <%= @booking.id %>
+  <b> by </b>
+  <%= @booking.producer.name if @booking.producer.present? %>
+  <b> for cohort: </b>
+  <%= @booking.cohort.name %>
+  <b> in </b>
+  <%= @booking.classroom.name %>
+  <b> starting on </b>
+  <%= @booking.start_date %>
+  <b>until</b>
+  <%= @booking.end_date %>
+</p>
+
+<%= link_to 'Back', bookings_path %>
+</div>
+

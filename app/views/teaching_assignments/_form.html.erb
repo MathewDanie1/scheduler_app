@@ -1,0 +1,22 @@
+<%= form_for(@teaching_assignment) do |f| %>
+ 
+  <div class="container">
+
+  <div>
+    <%= f.label :instructor  %>
+    <%= f.select :instructor_id, options_from_collection_for_select(@users, "id", "name") %>
+  </div>
+  <div>
+    <%= f.label :cohort %>
+    <%= f.select :cohort_id, options_from_collection_for_select(Cohort.all, "id", "name") %>
+  </div>
+  <div>
+    <%= f.label :rate %>
+    <%= f.number_field :rate %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

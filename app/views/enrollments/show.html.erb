@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<p>
+  <b>Name: </b>
+  <%= @enrollment.student.name %>
+  <b>Cohort: </b>
+  <%= @enrollment.cohort.name %>
+</p>
+
+<%= link_to 'Back', enrollments_path %>
+</div>

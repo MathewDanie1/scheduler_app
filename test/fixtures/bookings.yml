@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  classroom: 
+  cohort: 
+  start_date: 2014-05-19
+  end_date: 2014-05-19
+  user: 
+
+two:
+  classroom: 
+  cohort: 
+  start_date: 2014-05-19
+  end_date: 2014-05-19
+  user: 
